@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Brilliant Unicorn Solar | Get Matched With a Vetted Kenyan Installer</title>
-    <meta name="description" content="Tell us about your site. We qualify your roof, your bill, and your location, then connect you with a vetted solar installer — free, no obligation." />
+    <title>Brilliant Unicorn Ltd | Solar Connections + Fintech Reliability Engineering</title>
+    <meta name="description" content="Brilliant Unicorn Ltd connects Kenyan businesses with vetted solar installers, and helps African fintech, logistics, and healthtech platforms fix the infrastructure that breaks under load." />
+
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="apple-touch-icon" href="logo.png" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -12,102 +15,157 @@
     <style>
         :root {
             --amber: #F59E0B;
+            --amber-light: #FBBF24;
             --amber-dark: #D97706;
             --bg: #050505;
-            --panel: rgba(255, 255, 255, 0.03);
-            --panel-border: rgba(255, 255, 255, 0.08);
+            --panel: rgba(255, 255, 255, 0.015);
+            --panel-hover: rgba(255, 255, 255, 0.03);
+            --panel-border: rgba(255, 255, 255, 0.06);
+            --panel-border-hover: rgba(245, 158, 11, 0.3);
             --text: #F3F4F6;
-            --sun: #FDBA3B;
-            --sun-deep: #C2670A;
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
 
         body {
-            background: #050505;
+            background: var(--bg);
             color: var(--text);
             font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .serif { font-family: 'Playfair Display', serif; }
-        .mono { font-family: 'JetBrains Mono', monospace; }
+        .serif { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; }
+        .mono { font-family: 'JetBrains Mono', monospace; font-weight: 400; letter-spacing: 0.02em; }
 
         .glass-card {
-            background: var(--panel);
+            background: linear-gradient(145deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.005) 100%);
             border: 1px solid var(--panel-border);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(24px) saturate(1.1);
+            -webkit-backdrop-filter: blur(24px) saturate(1.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
 
-        .nav-border { border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
-        .section-border { border-top: 1px solid rgba(255, 255, 255, 0.06); }
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(251, 191, 36, 0.25), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--panel-border-hover);
+            background: linear-gradient(145deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.01) 100%);
+            box-shadow: 
+                0 20px 40px -10px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(245, 158, 11, 0.08),
+                0 0 80px -30px rgba(245, 158, 11, 0.12);
+        }
+
+        .glass-card:hover::before { opacity: 1; }
+
+        .nav-border { border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.875rem;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--amber);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        .section-border { border-top: 1px solid rgba(255, 255, 255, 0.04); }
 
         .btn-primary {
             background: var(--amber);
             color: #000;
-            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
             font-weight: 600;
+            font-size: 0.875rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
-        .btn-primary:hover { background: var(--amber-dark); transform: translateY(-1px); }
-        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+        .btn-primary:hover {
+            background: var(--amber-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -5px rgba(245, 158, 11, 0.35);
+        }
 
         .btn-secondary {
-            border: 1px solid rgba(245, 158, 11, 0.4);
+            border: 1px solid rgba(245, 158, 11, 0.35);
             color: var(--text);
-            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 0.875rem;
+            background: rgba(245, 158, 11, 0.03);
+            transition: all 0.3s ease;
         }
-        .btn-secondary:hover { border-color: var(--amber); color: var(--amber); }
+        .btn-secondary:hover {
+            border-color: var(--amber);
+            background: rgba(245, 158, 11, 0.08);
+            color: var(--amber-light);
+            transform: translateY(-2px);
+        }
 
+        /* ========== SUN GLOW ANIMATION (for inline base64 img) ========== */
         @keyframes sun-glow {
             0%, 100% { 
                 filter: 
-                    drop-shadow(0 0 6px rgba(255, 255, 255, 0.4))
-                    drop-shadow(0 0 14px rgba(252, 211, 77, 0.4))
-                    drop-shadow(0 0 28px rgba(245, 158, 11, 0.25));
+                    drop-shadow(0 0 12px rgba(255, 255, 255, 0.5))
+                    drop-shadow(0 0 30px rgba(252, 211, 77, 0.5))
+                    drop-shadow(0 0 60px rgba(245, 158, 11, 0.3))
+                    drop-shadow(0 0 100px rgba(245, 158, 11, 0.12));
             }
             50% { 
                 filter: 
-                    drop-shadow(0 0 10px rgba(255, 255, 255, 0.6))
-                    drop-shadow(0 0 22px rgba(252, 211, 77, 0.55))
-                    drop-shadow(0 0 40px rgba(245, 158, 11, 0.35));
+                    drop-shadow(0 0 20px rgba(255, 255, 255, 0.7))
+                    drop-shadow(0 0 45px rgba(252, 211, 77, 0.65))
+                    drop-shadow(0 0 80px rgba(245, 158, 11, 0.4))
+                    drop-shadow(0 0 130px rgba(245, 158, 11, 0.2));
             }
         }
 
-        .field-input {
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.12);
-        }
-        .field-input:focus {
-            outline: none;
-            border-color: var(--amber);
-            background: rgba(255,255,255,0.06);
-        }
-
-        input[type="range"] {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 3px;
-            background: rgba(255,255,255,0.15);
-            border-radius: 2px;
-        }
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            background: var(--sun);
-            cursor: pointer;
-            box-shadow: 0 0 12px rgba(253,186,59,0.5);
+        .hero-grid {
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), 
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent 80%);
+            -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent 80%);
         }
 
-        .reveal {
-            animation: riseIn 0.5s ease forwards;
-        }
-        @keyframes riseIn {
-            from { opacity: 0; transform: translateY(6px); }
-            to { opacity: 1; transform: translateY(0); }
+        .ambient-glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
         }
 
-        :focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+        :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; border-radius: 4px; }
 
         .social-icon {
             width: 40px;
@@ -124,401 +182,311 @@
         .social-icon:hover {
             background: rgba(245, 158, 11, 0.1);
             border-color: rgba(245, 158, 11, 0.4);
-            color: #FBBF24;
+            color: var(--amber-light);
             transform: translateY(-3px);
         }
+
+        .label-mono {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--amber-light);
+            font-weight: 500;
+        }
+
+        .step-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.75rem;
+            color: rgba(251, 191, 36, 0.7);
+            font-weight: 500;
+        }
+
+        /* WhatsApp button - clean full circle */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            transition: transform 0.2s ease;
+        }
+        .whatsapp-float:active {
+            transform: scale(0.95);
+        }
+
         @media (prefers-reduced-motion: reduce) {
             * { animation: none !important; transition: none !important; }
+        }
+
+        ::selection {
+            background: rgba(251, 191, 36, 0.3);
+            color: #fff;
         }
     </style>
 <base target="_blank">
 </head>
-<body class="antialiased selection:bg-amber-500/30">
+<body class="antialiased">
+
+    <!-- Ambient Background -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="ambient-glow -top-40 -right-40"></div>
+        <div class="ambient-glow bottom-0 left-0 opacity-50"></div>
+    </div>
 
     <!-- NAVIGATION -->
-    <nav class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between nav-border sticky top-0 bg-black/80 backdrop-blur z-50">
-        <a href="https://brilliantunicorn.com" class="flex items-center gap-3">
-            <img src="data:image/png;base64,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" alt="Brilliant Unicorn" class="w-9 h-9 rounded-full object-cover" style="filter:drop-shadow(0 0 6px rgba(255,255,255,0.4)) drop-shadow(0 0 14px rgba(252,211,77,0.4)) drop-shadow(0 0 28px rgba(245,158,11,0.25));animation:sun-glow 3s ease-in-out infinite;">
-            <p class="serif text-lg font-semibold text-white leading-tight">
-                Brilliant Unicorn <span class="text-amber-400">Solar</span>
-                <span class="block mono text-[9px] tracking-[0.15em] text-white/35 font-normal">PART OF BRILLIANT UNICORN LTD</span>
-            </p>
+    <nav class="relative z-50 max-w-7xl mx-auto px-6 py-5 flex items-center justify-between nav-border sticky top-0 bg-black/60 backdrop-blur-xl">
+        <a href="/" class="flex items-center gap-3 group">
+            <img src="logo.png" alt="Brilliant Unicorn Ltd" class="w-11 h-11 rounded-full border border-amber-500/20 object-cover transition-transform duration-300 group-hover:scale-105" />
+            <p class="serif text-lg text-white">Brilliant Unicorn <span class="text-amber-400">Ltd</span></p>
         </a>
-        <div class="hidden md:flex items-center gap-8 text-sm text-white/70">
-            <a href="#how-it-works" class="hover:text-amber-400 transition">How it works</a>
-            <a href="#installers" class="hover:text-amber-400 transition">For installers</a>
-            <a href="#faq" class="hover:text-amber-400 transition">FAQ</a>
-            <a href="https://brilliantunicorn.com" class="hover:text-amber-400 transition">Fintech consulting →</a>
+        <div class="hidden md:flex items-center gap-10 text-white/60">
+            <a href="https://solar.brilliantunicorn.com" class="nav-link hover:text-white transition">Solar</a>
+            <a href="#fintech" class="nav-link hover:text-white transition">Fintech Consulting</a>
+            <a href="#about" class="nav-link hover:text-white transition">About</a>
+            <a href="#contact" class="nav-link hover:text-white transition">Contact</a>
         </div>
-        <a href="#quote" class="btn-primary px-5 py-2.5 rounded-sm text-sm">Get matched</a>
+        <a href="https://solar.brilliantunicorn.com" class="btn-primary px-6 py-2.5 rounded-lg text-sm">Get a solar quote</a>
     </nav>
 
-    <!-- HERO -->
-    <header class="relative overflow-hidden py-16 md:py-24 border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1.1fr_1fr] gap-14 items-center">
-
+    <!-- HERO: SOLAR -->
+    <header class="relative overflow-hidden py-20 md:py-32 border-b border-white/5">
+        <div class="absolute inset-0 hero-grid pointer-events-none"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-[1.1fr_1fr] gap-16 items-center">
             <div>
-                <p class="text-amber-400 text-sm font-medium mb-5">For Kenyan businesses and homeowners</p>
-                <h1 class="serif text-4xl md:text-5xl font-semibold leading-[1.1] text-white mb-6">
-                    Find out what solar actually costs at your address.
+                <p class="label-mono mb-6">Solar Lead Connections for Kenya</p>
+                <h1 class="serif text-5xl md:text-6xl text-white mb-8">
+                    We connect Kenyan businesses with solar installers worth trusting.
                 </h1>
-                <p class="text-lg text-white/70 leading-relaxed mb-4 max-w-lg">
-                    Tell us your monthly bill, your roof, and your location. We'll size the system, answer your questions, and connect you directly with an installer we've already vetted — not a call center reading a script.
+                <p class="text-lg text-white/60 leading-relaxed mb-10 max-w-xl">
+                    Tell us your bill, your roof, and your location. We qualify the details, answer your questions, and match you with a vetted installer from our network — free, no obligation.
                 </p>
-                <p class="text-white/50 text-sm mb-10">Free for you. We're paid by the installer once a project is confirmed.</p>
-
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#quote" class="btn-primary px-8 py-4 rounded-sm text-center">Get my free estimate</a>
-                    <a href="#how-it-works" class="btn-secondary px-8 py-4 rounded-sm text-center">See how matching works</a>
-                </div>
-
-                <div class="flex gap-10 mt-12 pt-8 border-t border-white/5">
-                    <div>
-                        <p class="serif text-2xl text-white">48hrs</p>
-                        <p class="text-white/45 text-xs mt-1">Typical time to first installer call</p>
-                    </div>
-                    <div>
-                        <p class="serif text-2xl text-white">0</p>
-                        <p class="text-white/45 text-xs mt-1">Cost to you, ever</p>
-                    </div>
-                    <div>
-                        <p class="serif text-2xl text-white">Vetted</p>
-                        <p class="text-white/45 text-xs mt-1">Every installer in our network</p>
-                    </div>
+                    <a href="https://solar.brilliantunicorn.com" class="btn-primary px-8 py-4 rounded-lg text-center">Get my free solar estimate</a>
+                    <a href="https://solar.brilliantunicorn.com#installers" class="btn-secondary px-8 py-4 rounded-lg text-center">I'm an installer</a>
                 </div>
             </div>
 
-            <!-- Instant estimate calculator -->
-            <div class="glass-card rounded-sm p-7 md:p-8">
-                <p class="mono text-[10px] tracking-[0.15em] text-amber-400 mb-1">INSTANT ESTIMATE</p>
-                <h2 class="text-white text-lg font-medium mb-6">What could you save?</h2>
-
-                <label class="block text-sm text-white/60 mb-2" for="billRange">Average monthly electricity bill</label>
-                <div class="flex items-baseline gap-2 mb-2">
-                    <span class="text-white/50 mono text-sm">KES</span>
-                    <span id="billValue" class="serif text-3xl text-white">15,000</span>
-                </div>
-                <input id="billRange" type="range" min="3000" max="150000" step="1000" value="15000" class="mb-8" />
-
-                <div id="estimateResult" class="rounded-sm bg-black/40 border border-amber-500/20 p-5 mb-2">
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="text-white/60 text-sm">Estimated system size</span>
-                        <span id="systemSize" class="mono text-white text-sm">—</span>
-                    </div>
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="text-white/60 text-sm">Estimated monthly savings</span>
-                        <span id="monthlySavings" class="mono text-amber-400 text-sm">—</span>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <span class="text-white/60 text-sm">Rough payback period</span>
-                        <span id="paybackPeriod" class="mono text-white text-sm">—</span>
-                    </div>
-                </div>
-                <p class="text-white/35 text-xs mb-6">Ballpark only — your qualified quote will use your real bill, roof, and location.</p>
-
-                <a href="#quote" class="btn-primary block text-center py-3.5 rounded-sm text-sm">Turn this into a real quote</a>
+            <div class="glass-card rounded-2xl p-10">
+                <!-- FIXED SUN - no more dark center -->
+                <img src="data:image/png;base64,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" alt="sun" style="width:96px;height:96px;display:block;margin-bottom:2rem;filter:drop-shadow(0 0 12px rgba(255,255,255,0.5)) drop-shadow(0 0 30px rgba(252,211,77,0.5)) drop-shadow(0 0 60px rgba(245,158,11,0.3));animation:sun-glow 3s ease-in-out infinite;">
+                <p class="text-white text-xl font-medium mb-6">How the matching works</p>
+                <ol class="space-y-5">
+                    <li class="flex gap-4 items-start">
+                        <span class="step-number mt-1">01</span>
+                        <p class="text-white/60 text-sm leading-relaxed">You tell us about your site — bill, roof, location.</p>
+                    </li>
+                    <li class="flex gap-4 items-start">
+                        <span class="step-number mt-1">02</span>
+                        <p class="text-white/60 text-sm leading-relaxed">We qualify it and answer your questions honestly.</p>
+                    </li>
+                    <li class="flex gap-4 items-start">
+                        <span class="step-number mt-1">03</span>
+                        <p class="text-white/60 text-sm leading-relaxed">A vetted installer reaches out with a real quote.</p>
+                    </li>
+                </ol>
+                <a href="https://solar.brilliantunicorn.com" class="block mt-8 text-amber-400 text-sm hover:text-amber-300 transition font-medium">Visit solar.brilliantunicorn.com →</a>
             </div>
-
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-6">
+    <main class="relative z-10 max-w-7xl mx-auto px-6">
 
-        <!-- HOW IT WORKS -->
-        <section id="how-it-works" class="py-20 section-border">
-            <div class="max-w-2xl mb-14">
-                <h2 class="serif text-3xl md:text-4xl font-semibold text-white mb-4">How the matching works</h2>
-                <p class="text-white/60 leading-relaxed">Three steps, and only one of them involves talking to a salesperson.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
+        <!-- FINTECH CONSULTING -->
+        <section id="fintech" class="py-24 section-border">
+            <div class="grid lg:grid-cols-[1fr_0.9fr] gap-20 mb-20">
                 <div>
-                    <p class="serif text-4xl text-amber-400/50 mb-4">1</p>
-                    <h3 class="text-white text-lg font-medium mb-3">You tell us about your site</h3>
-                    <p class="text-white/60 text-sm leading-relaxed">Monthly bill, roof size and orientation, location, and what you're trying to solve — lower bills, backup power, or both.</p>
-                </div>
-                <div>
-                    <p class="serif text-4xl text-amber-400/50 mb-4">2</p>
-                    <h3 class="text-white text-lg font-medium mb-3">We qualify it properly</h3>
-                    <p class="text-white/60 text-sm leading-relaxed">We check that the numbers make sense, answer whatever questions you have, and size a system that fits your actual usage — not an inflated one.</p>
-                </div>
-                <div>
-                    <p class="serif text-4xl text-amber-400/50 mb-4">3</p>
-                    <h3 class="text-white text-lg font-medium mb-3">We connect you to an installer</h3>
-                    <p class="text-white/60 text-sm leading-relaxed">A vetted EPC company from our network reaches out directly with a real quote. You decide if you want to move forward — no pressure from us either way.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- LEAD CAPTURE FORM -->
-        <section id="quote" class="py-20 section-border">
-            <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-14">
-                <div>
-                    <h2 class="serif text-3xl md:text-4xl font-semibold text-white mb-5">Get your free site assessment</h2>
-                    <p class="text-white/60 leading-relaxed mb-8 max-w-md">Takes about two minutes. We'll review it and be in touch — usually within two business days, sooner if your numbers point to a strong fit.</p>
-
-                    <div class="glass-card rounded-sm p-6">
-                        <p class="text-white/40 text-xs leading-relaxed">
-                            We never sell your contact details to more than one installer at a time, and we never share your information with anyone outside our vetted network.
-                        </p>
-                    </div>
-                </div>
-
-                <form id="leadForm" class="glass-card rounded-sm p-8 space-y-5" action="https://formspree.io/f/mlgpyrrb" method="POST">
-                    <div class="grid sm:grid-cols-2 gap-5">
-                        <div>
-                            <label class="block text-sm text-white/60 mb-2" for="name">Full name</label>
-                            <input required type="text" id="name" name="name" class="field-input w-full rounded-sm px-4 py-3 text-white text-sm" placeholder="Jane Wanjiru" />
-                        </div>
-                        <div>
-                            <label class="block text-sm text-white/60 mb-2" for="phone">Phone or WhatsApp</label>
-                            <input required type="tel" id="phone" name="phone" class="field-input w-full rounded-sm px-4 py-3 text-white text-sm" placeholder="+254 7XX XXX XXX" />
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-sm text-white/60 mb-2" for="location">Location (town or estate)</label>
-                        <input required type="text" id="location" name="location" class="field-input w-full rounded-sm px-4 py-3 text-white text-sm" placeholder="Kitengela, Kajiado County" />
-                    </div>
-
-                    <div class="grid sm:grid-cols-2 gap-5">
-                        <div>
-                            <label class="block text-sm text-white/60 mb-2" for="bill">Average monthly bill (KES)</label>
-                            <input required type="number" id="bill" name="bill" class="field-input w-full rounded-sm px-4 py-3 text-white text-sm" placeholder="15,000" />
-                        </div>
-                        <div>
-                            <label class="block text-sm text-white/60 mb-2" for="roof">Roof size, if known</label>
-                            <input type="text" id="roof" name="roof_size" class="field-input w-full rounded-sm px-4 py-3 text-white text-sm" placeholder="e.g. 80 sqm, or not sure" />
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block text-sm text-white/60 mb-2" for="property">Property type</label>
-                        <select id="property" name="property_type" class="field-input w-full rounded-sm px-4 py-3 text-white text-sm">
-                            <option value="Home">Home</option>
-                            <option value="Commercial building">Commercial building</option>
-                            <option value="Farm or agribusiness">Farm or agribusiness</option>
-                            <option value="Institution">Institution (school, church, clinic)</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block text-sm text-white/60 mb-2" for="notes">Anything else we should know?</label>
-                        <textarea id="notes" name="notes" rows="3" class="field-input w-full rounded-sm px-4 py-3 text-white text-sm" placeholder="Backup power needs, timeline, budget range, questions..."></textarea>
-                    </div>
-
-                    <input type="text" name="_gotcha" style="display:none" />
-                    <input type="hidden" name="_subject" value="New Solar Lead — Brilliant Unicorn Solar" />
-
-                    <button type="submit" id="submitBtn" class="btn-primary w-full py-4 rounded-sm">Request my free assessment</button>
-                    <p id="formNote" class="text-white/35 text-xs text-center"></p>
-                </form>
-            </div>
-        </section>
-
-        <!-- FOR INSTALLERS -->
-        <section id="installers" class="py-20 section-border">
-            <div class="glass-card rounded-sm p-10 md:p-14 grid lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <p class="text-amber-400 text-sm font-medium mb-4">For solar EPC companies</p>
-                    <h2 class="serif text-3xl md:text-4xl font-semibold text-white mb-5 leading-tight">
-                        Stop paying for clicks. Pay for qualified leads.
+                    <p class="label-mono mb-6">Also from Brilliant Unicorn</p>
+                    <h2 class="serif text-4xl md:text-5xl text-white mb-8 leading-tight">
+                        Infrastructure reliability engineering for African fintechs
                     </h2>
-                    <p class="text-white/60 leading-relaxed mb-6 max-w-md">
-                        Every lead we send you has already confirmed their bill, roof, and location, and had their questions answered. You're talking to someone who's ready to get a quote, not someone who filled out a form by accident.
+                    <p class="text-white/55 leading-relaxed mb-6 text-base">
+                        African fintech is scaling faster than the infrastructure under it. Flutterwave rails, M-Pesa integrations, API-driven banking — the products are ready before the systems underneath them are. That gap is where platforms crash during peak traffic, and where trust gets lost in a single bad afternoon.
                     </p>
-                    <ul class="space-y-3 text-sm text-white/70 mb-8">
-                        <li class="flex gap-3"><span class="text-amber-400">—</span> Pay a flat finder's fee per qualified lead, or</li>
-                        <li class="flex gap-3"><span class="text-amber-400">—</span> Pay a 5–10% commission only once a system is installed</li>
-                        <li class="flex gap-3"><span class="text-amber-400">—</span> No subscription, no minimums, no long-term contract</li>
-                    </ul>
-                    <a href="mailto:ceo@brilliantunicorn.com?subject=Installer%20partnership%20inquiry" class="btn-primary inline-block px-8 py-3.5 rounded-sm">Apply to join the network</a>
+                    <p class="text-white/55 leading-relaxed text-base">
+                        I've spent years in DNS, CDN, and BGP-level optimization, and in building systems that keep working when the network doesn't cooperate. That's the specific problem I help fintech, logistics, and healthtech platforms solve.
+                    </p>
                 </div>
-                <div class="space-y-4">
-                    <div class="bg-black/30 border border-white/10 rounded-sm p-5">
-                        <p class="text-white text-sm font-medium mb-1">Qualification standard</p>
-                        <p class="text-white/50 text-xs leading-relaxed">Every lead includes verified bill amount, rough roof size, exact location, and a note on what they actually want out of the system.</p>
+
+                <div class="glass-card rounded-2xl p-8 h-fit">
+                    <p class="mono text-amber-400 text-xs mb-6 uppercase tracking-widest">Taking On Founding Clients</p>
+                    <p class="text-white/60 text-sm leading-relaxed mb-8">
+                        This consulting practice is early-stage. Instead of case studies from past clients, here's what I can show you directly: live, working engineering research, in the open.
+                    </p>
+                    <a href="mailto:ceo@brilliantunicorn.com?subject=Reliability%20engineering%20inquiry&body=What%20platform%20are%20you%20running%2C%20and%20where%20is%20it%20breaking%20under%20load%3F" class="btn-primary block text-center py-4 rounded-lg text-sm">Tell me what's breaking →</a>
+                    <p class="text-white/30 text-xs mt-5 text-center">Opens an email — describe your system and I'll reply with next steps.</p>
+                </div>
+            </div>
+
+            <p class="label-mono mb-8">The Proof — Public, Ongoing, Updated in the Open</p>
+            <div class="grid md:grid-cols-2 gap-6 mb-16">
+                <a href="https://github.com/cmwrxh/internet-under-the-hood" target="_blank" rel="noopener" class="glass-card p-8 rounded-2xl block group">
+                    <h3 class="text-white text-lg font-medium mb-3 group-hover:text-amber-400 transition">Internet Under The Hood</h3>
+                    <p class="text-white/50 text-sm leading-relaxed">A live lab measuring real DNS, TLS, HTTP/3, CDN, and BGP behavior — not theory. Automated health checks run continuously.</p>
+                    <p class="text-amber-400/70 text-xs mt-5 font-medium group-hover:text-amber-400 transition">View the repo →</p>
+                </a>
+                <a href="https://github.com/cmwrxh/resilient-distributed-systems-lab" target="_blank" rel="noopener" class="glass-card p-8 rounded-2xl block group">
+                    <h3 class="text-white text-lg font-medium mb-3 group-hover:text-amber-400 transition">Resilient Distributed Systems Lab</h3>
+                    <p class="text-white/50 text-sm leading-relaxed">A self-documenting chaos engineering lab: daily reliability journals, weekly controlled-failure experiments, recorded over time.</p>
+                    <p class="text-amber-400/70 text-xs mt-5 font-medium group-hover:text-amber-400 transition">View the repo →</p>
+                </a>
+                <a href="https://github.com/cmwrxh/alpha-core-framework" target="_blank" rel="noopener" class="glass-card p-8 rounded-2xl block group">
+                    <h3 class="text-white text-lg font-medium mb-3 group-hover:text-amber-400 transition">AlphaCore Framework</h3>
+                    <p class="text-white/50 text-sm leading-relaxed">A Rust concurrency engine built on a shared-nothing architecture, designed to keep processing through unstable power and network conditions.</p>
+                    <p class="text-amber-400/70 text-xs mt-5 font-medium group-hover:text-amber-400 transition">View the repo →</p>
+                </a>
+                <a href="https://github.com/cmwrxh/fintech-risk-lab" target="_blank" rel="noopener" class="glass-card p-8 rounded-2xl block group">
+                    <h3 class="text-white text-lg font-medium mb-3 group-hover:text-amber-400 transition">FinTech Risk Lab</h3>
+                    <p class="text-white/50 text-sm leading-relaxed">Credit risk and fraud-signal analytics, built with reproducible Python and SQL-first thinking.</p>
+                    <p class="text-amber-400/70 text-xs mt-5 font-medium group-hover:text-amber-400 transition">View the repo →</p>
+                </a>
+            </div>
+
+            <div class="glass-card rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                <p class="text-white/70 text-base">Running a fintech, logistics, or healthtech platform that's outgrowing its infrastructure?</p>
+                <a href="mailto:ceo@brilliantunicorn.com?subject=Reliability%20engineering%20inquiry" class="btn-primary px-8 py-3.5 rounded-lg whitespace-nowrap">Start a conversation</a>
+            </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="py-24 section-border">
+            <div class="grid lg:grid-cols-2 gap-20 items-start">
+                <div>
+                    <p class="label-mono mb-6">About Brilliant Unicorn</p>
+                    <h2 class="serif text-4xl md:text-5xl text-white mb-8 leading-tight">
+                        Building connections. Solving complex problems. Enabling businesses to scale.
+                    </h2>
+                    <p class="text-white/50 leading-relaxed mb-6 text-base">
+                        Brilliant Unicorn Ltd is a Nairobi-based solutions company serving businesses across energy and technology.
+                    </p>
+                    <p class="text-white/50 leading-relaxed mb-8 text-base">
+                        We operate across two complementary areas of expertise: <strong class="text-white/80 font-semibold">solar and energy solutions</strong>, and <strong class="text-white/80 font-semibold">technology and fintech infrastructure</strong>. In both, our role is to identify the right solutions, bring the right parties together, and provide the expertise required to deliver reliable outcomes.
+                    </p>
+                    
+                    <h3 class="text-white font-semibold text-lg mb-4 mt-10">Solar & Energy Solutions</h3>
+                    <p class="text-white/50 leading-relaxed mb-8 text-base">
+                        We facilitate connections between Kenyan businesses and qualified solar providers and installation partners. By understanding each business's requirements and matching them with suitable technical providers, we help simplify the process of sourcing and implementing dependable energy solutions.
+                    </p>
+                    
+                    <h3 class="text-white font-semibold text-lg mb-4">Technology & Fintech Infrastructure</h3>
+                    <p class="text-white/50 leading-relaxed mb-8 text-base">
+                        We provide technical consulting and infrastructure support to technology-driven businesses operating in demanding digital environments. Our work encompasses system architecture, DNS and network configuration, API and logic-flow analysis, and infrastructure optimization—helping businesses build resilient systems capable of supporting growth and real-world workloads.
+                    </p>
+                    
+                    <p class="text-white/50 leading-relaxed text-base">
+                        Across every engagement, Brilliant Unicorn is guided by the same principle: <strong class="text-white/80 font-semibold">combine the right expertise, infrastructure, and partnerships to create solutions that are dependable, scalable, and built for long-term value.</strong>
+                    </p>
+                </div>
+                <div class="space-y-4 lg:mt-24">
+                    <div class="glass-card p-8 rounded-2xl">
+                        <p class="text-white font-semibold mb-2 text-base">Correctness first</p>
+                        <p class="text-white/40 text-sm leading-relaxed">Systems must be reliable before they're fast or flashy.</p>
                     </div>
-                    <div class="bg-black/30 border border-white/10 rounded-sm p-5">
-                        <p class="text-white text-sm font-medium mb-1">Vetting works both ways</p>
-                        <p class="text-white/50 text-xs leading-relaxed">We review installer track record, licensing, and warranty terms before adding anyone to the network — it protects your reputation as much as the client's.</p>
+                    <div class="glass-card p-8 rounded-2xl">
+                        <p class="text-white font-semibold mb-2 text-base">Measurability</p>
+                        <p class="text-white/40 text-sm leading-relaxed">If you can't measure it, you can't trust or improve it at scale.</p>
                     </div>
-                    <div class="bg-black/30 border border-white/10 rounded-sm p-5">
-                        <p class="text-white text-sm font-medium mb-1">You choose your capacity</p>
-                        <p class="text-white/50 text-xs leading-relaxed">Tell us how many leads you can handle per month. We won't flood you past that.</p>
+                    <div class="glass-card p-8 rounded-2xl">
+                        <p class="text-white font-semibold mb-2 text-base">Secure by design</p>
+                        <p class="text-white/40 text-sm leading-relaxed">Security is never an add-on — it's baked in from day one.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FAQ -->
-        <section id="faq" class="py-20 section-border">
-            <h2 class="serif text-3xl md:text-4xl font-semibold text-white mb-10">Questions people usually ask</h2>
-            <div class="space-y-0 max-w-3xl">
-                <details class="group border-b border-white/8 py-5">
-                    <summary class="cursor-pointer list-none flex justify-between items-center text-white font-medium">
-                        Does this cost me anything as a homeowner or business?
-                        <span class="text-amber-400 group-open:rotate-45 transition text-xl leading-none">+</span>
-                    </summary>
-                    <p class="text-white/60 text-sm mt-3 leading-relaxed">No. We're paid by the installer, either as a finder's fee or a small commission once your system is installed. Your quote and our advice are free either way.</p>
-                </details>
-                <details class="group border-b border-white/8 py-5">
-                    <summary class="cursor-pointer list-none flex justify-between items-center text-white font-medium">
-                        Will I get calls from multiple installers?
-                        <span class="text-amber-400 group-open:rotate-45 transition text-xl leading-none">+</span>
-                    </summary>
-                    <p class="text-white/60 text-sm mt-3 leading-relaxed">Usually just one — the installer in our network best suited to your location and system size. If you'd like a second opinion, tell us and we'll arrange it.</p>
-                </details>
-                <details class="group border-b border-white/8 py-5">
-                    <summary class="cursor-pointer list-none flex justify-between items-center text-white font-medium">
-                        How do you vet installers?
-                        <span class="text-amber-400 group-open:rotate-45 transition text-xl leading-none">+</span>
-                    </summary>
-                    <p class="text-white/60 text-sm mt-3 leading-relaxed">We check licensing, past installation references, and warranty terms before anyone joins the network, and we track feedback from clients we've referred over time.</p>
-                </details>
-                <details class="group border-b border-white/8 py-5">
-                    <summary class="cursor-pointer list-none flex justify-between items-center text-white font-medium">
-                        I'm not sure solar makes sense for me yet — can I still ask questions?
-                        <span class="text-amber-400 group-open:rotate-45 transition text-xl leading-none">+</span>
-                    </summary>
-                    <p class="text-white/60 text-sm mt-3 leading-relaxed">Yes. A large part of qualifying a lead is answering questions honestly, including telling you if solar isn't a good fit yet. Send us your bill and roof details and we'll give you a straight answer.</p>
-                </details>
+        <!-- CONTACT -->
+        <section id="contact" class="py-24 section-border">
+            <div class="glass-card rounded-2xl p-12 md:p-16 grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <p class="label-mono mb-6">Let's Connect</p>
+                    <h2 class="serif text-4xl md:text-5xl text-white mb-6 leading-tight">Have a question about either business?</h2>
+                    <p class="text-white/50 leading-relaxed text-base">We reply within 1–2 business days. For solar quotes, it's faster to go straight to the estimate tool.</p>
+                </div>
+                <div class="space-y-5">
+                    <a href="mailto:ceo@brilliantunicorn.com" class="block text-white text-xl hover:text-amber-400 transition font-medium">ceo@brilliantunicorn.com</a>
+                    <p class="text-white/40 text-base">+254 797 560 284 · Nairobi, Kenya</p>
+                    <a href="https://solar.brilliantunicorn.com" class="btn-primary inline-block px-8 py-4 rounded-lg mt-4">Go to solar estimate tool →</a>
+                </div>
             </div>
         </section>
 
     </main>
 
     <!-- FOOTER -->
-    <footer class="max-w-7xl mx-auto px-6 pt-16 pb-10 border-t border-white/5">
-        <div class="grid md:grid-cols-4 gap-12 mb-14">
-            <div>
-                <p class="serif text-xl font-semibold text-white mb-3">Brilliant Unicorn <span class="text-amber-400">Solar</span></p>
-                <p class="text-white/45 text-sm leading-relaxed max-w-xs">Connecting Kenyan homes and businesses with vetted solar installers. Part of Brilliant Unicorn Ltd.</p>
-            </div>
-            <div class="text-sm space-y-3 text-white/60">
-                <p><a href="#how-it-works" class="hover:text-amber-400 transition">How it works</a></p>
-                <p><a href="#installers" class="hover:text-amber-400 transition">For installers</a></p>
-                <p><a href="#faq" class="hover:text-amber-400 transition">FAQ</a></p>
-                <p><a href="https://brilliantunicorn.com" class="hover:text-amber-400 transition">Fintech consulting</a></p>
-                <p><a href="https://brilliantunicorn.com" class="hover:text-amber-400 transition">Brilliant Unicorn Ltd</a></p>
-            </div>
-            <div class="text-sm space-y-3 text-white/60">
-                <p><a href="https://brilliantunicorn.com/privacy" class="hover:text-amber-400 transition">Privacy Policy</a></p>
-                <p><a href="https://brilliantunicorn.com/terms" class="hover:text-amber-400 transition">Terms of Use</a></p>
-                <p><a href="https://brilliantunicorn.com/refund" class="hover:text-amber-400 transition">Refund Policy</a></p>
-            </div>
-            <div>
-                <p class="mono text-xs uppercase tracking-widest text-white/30 mb-4">Follow Us</p>
-                <div class="flex gap-3">
-                    <a href="https://facebook.com/brilliantunicorn" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
-                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    </a>
-                    <a href="https://x.com/brilliantunicorn" target="_blank" rel="noopener" class="social-icon" aria-label="X (Twitter)">
-                        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    </a>
-                    <a href="https://tiktok.com/@brilliantunicorn" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok">
-                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-                    </a>
-                    <a href="https://linkedin.com/company/brilliantunicorn" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
-                        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-                    </a>
+    <footer class="relative z-10 border-t border-white/5 bg-gradient-to-b from-transparent to-black/40">
+        <div class="max-w-7xl mx-auto px-6 pt-20 pb-12">
+            
+            <div class="grid md:grid-cols-4 gap-12 mb-16">
+                <div class="md:col-span-1">
+                    <p class="serif text-2xl text-white mb-4">Brilliant Unicorn <span class="text-amber-400">Ltd</span></p>
+                    <p class="text-white/40 text-sm leading-relaxed max-w-xs">
+                        We connect businesses with the right solar solutions and help technology companies build reliable systems that work well in the real world.
+                    </p>
+                </div>
+
+                <div>
+                    <p class="mono text-xs uppercase tracking-widest text-white/30 mb-6">Services</p>
+                    <div class="space-y-3 text-sm">
+                        <p><a href="https://solar.brilliantunicorn.com" class="text-white/50 hover:text-amber-400 transition">Solar Advisory</a></p>
+                        <p><a href="#fintech" class="text-white/50 hover:text-amber-400 transition">Fintech Consulting</a></p>
+                        <p><a href="#about" class="text-white/50 hover:text-amber-400 transition">About</a></p>
+                        <p><a href="#contact" class="text-white/50 hover:text-amber-400 transition">Contact</a></p>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="mono text-xs uppercase tracking-widest text-white/30 mb-6">Legal</p>
+                    <div class="space-y-3 text-sm">
+                        <p><a href="/privacy" class="text-white/50 hover:text-amber-400 transition">Privacy Policy</a></p>
+                        <p><a href="/terms" class="text-white/50 hover:text-amber-400 transition">Terms of Use</a></p>
+                        <p><a href="/refund" class="text-white/50 hover:text-amber-400 transition">Refund Policy</a></p>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="mono text-xs uppercase tracking-widest text-white/30 mb-6">Follow Us</p>
+                    <div class="flex gap-3">
+                        <a href="https://facebook.com/brilliantunicorn" target="_blank" rel="noopener" class="social-icon" aria-label="Facebook">
+                            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        </a>
+                        <a href="https://x.com/brilliantunicorn" target="_blank" rel="noopener" class="social-icon" aria-label="X (Twitter)">
+                            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                        </a>
+                        <a href="https://tiktok.com/@brilliantunicorn" target="_blank" rel="noopener" class="social-icon" aria-label="TikTok">
+                            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                        </a>
+                        <a href="https://linkedin.com/company/brilliantunicorn" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+                            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-6 gap-4">
-            <p class="mono text-[10px] tracking-widest text-white/25">© 2026 BRILLIANT UNICORN LTD</p>
-            <p class="mono text-[10px] tracking-widest text-white/25">SOLAR.BRILLIANTUNICORN.COM</p>
+
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="mono text-[10px] tracking-widest text-white/20">© 2026 BRILLIANT UNICORN LTD</p>
+                <p class="mono text-[10px] tracking-widest text-white/20">SYSTEMS THAT LAST</p>
+            </div>
         </div>
     </footer>
 
-    <script>
-        const billRange = document.getElementById('billRange');
-        const billValue = document.getElementById('billValue');
-        const systemSize = document.getElementById('systemSize');
-        const monthlySavings = document.getElementById('monthlySavings');
-        const paybackPeriod = document.getElementById('paybackPeriod');
-        const estimateResult = document.getElementById('estimateResult');
-
-        function fmt(n) {
-            return Math.round(n).toLocaleString('en-KE');
-        }
-
-        function updateEstimate() {
-            const bill = parseInt(billRange.value, 10);
-            billValue.textContent = fmt(bill);
-
-            // Rough illustrative assumptions, not an engineering quote:
-            // ~KES 30/kWh effective tariff, ~4.2 sun-hours/day average in Kenya,
-            // solar system assumed to offset ~75% of consumption.
-            const tariff = 30;
-            const sunHours = 4.2;
-            const monthlyKwh = bill / tariff;
-            const offsetKwh = monthlyKwh * 0.75;
-            const systemKw = offsetKwh / (sunHours * 30);
-            const savings = offsetKwh * tariff;
-            const estCost = systemKw * 130000; // rough installed cost per kW, KES
-            const paybackYears = estCost / (savings * 12);
-
-            systemSize.textContent = `~${systemKw.toFixed(1)} kW`;
-            monthlySavings.textContent = `KES ${fmt(savings)}`;
-            paybackPeriod.textContent = `~${paybackYears.toFixed(1)} yrs`;
-
-            estimateResult.classList.remove('reveal');
-            void estimateResult.offsetWidth;
-            estimateResult.classList.add('reveal');
-        }
-
-        billRange.addEventListener('input', updateEstimate);
-        updateEstimate();
-
-        const leadForm = document.getElementById('leadForm');
-        const formNote = document.getElementById('formNote');
-        const submitBtn = document.getElementById('submitBtn');
-
-        leadForm.addEventListener('submit', async function (e) {
-            e.preventDefault();
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-            formNote.textContent = '';
-
-            const formData = new FormData(leadForm);
-            const action = leadForm.getAttribute('action');
-
-            // Check if Formspree is configured
-            if (action.includes('YOUR_FORM_ID')) {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Request my free assessment';
-                formNote.innerHTML = '<span style="color:#F59E0B">Formspree not configured yet.</span> Replace YOUR_FORM_ID in the HTML with your actual Formspree form ID, or email us directly at <a href="mailto:ceo@brilliantunicorn.com" style="color:#FBBF24;text-decoration:underline">ceo@brilliantunicorn.com</a>';
-                return;
-            }
-
-            try {
-                const response = await fetch(action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
-                });
-
-                if (response.ok) {
-                    leadForm.reset();
-                    submitBtn.textContent = 'Sent successfully';
-                    formNote.innerHTML = '<span style="color:#4ade80">Thanks — we have your details and will be in touch within two business days.</span>';
-                    setTimeout(() => {
-                        submitBtn.textContent = 'Request my free assessment';
-                        submitBtn.disabled = false;
-                    }, 4000);
-                } else {
-                    const data = await response.json();
-                    throw new Error(data.error || 'Something went wrong');
-                }
-            } catch (err) {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Request my free assessment';
-                formNote.innerHTML = '<span style="color:#f87171">' + err.message + '. Please email us directly at <a href="mailto:ceo@brilliantunicorn.com" style="color:#FBBF24;text-decoration:underline">ceo@brilliantunicorn.com</a></span>';
-            }
-        });
-    </script>
+    <!-- WhatsApp button - clean full circle + correct icon -->
+    <a href="https://wa.me/254797560284" 
+       target="_blank" 
+       rel="noopener" 
+       class="whatsapp-float md:hidden" 
+       aria-label="Chat on WhatsApp">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.4.321 2.684.958 3.738.636 1.053 1.574 2.067 2.814 3.042 1.24.975 2.658 1.657 4.254 2.046 1.595.389 2.89.288 3.886-.303.996-.591 1.636-1.439 1.92-2.544.284-1.105.142-2.115-.426-3.03zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
 
 </body>
 </html>
