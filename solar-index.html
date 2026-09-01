@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brilliant Unicorn Solar | Get Matched With a Vetted Kenyan Installer</title>
+    <meta name="description" content="Tell us about your site. We qualify your roof, your bill, and your location, then connect you with a vetted solar installer — free, no obligation." />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <style>
+        :root {
+            --amber: #F59E0B;
+            --amber-dark: #D97706;
+            --bg: #050505;
+            --panel: rgba(255, 255, 255, 0.03);
+            --panel-border: rgba(255, 255, 255, 0.08);
+            --text: #F3F4F6;
+            --sun: #FDBA3B;
+            --sun-deep: #C2670A;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: #050505;
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .serif { font-family: 'Playfair Display', serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .glass-card {
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-border { border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+        .section-border { border-top: 1px solid rgba(255, 255, 255, 0.06); }
+
+        .btn-primary {
+            background: var(--amber);
+            color: #000;
+            transition: all 0.2s ease;
+            font-weight: 600;
+        }
+        .btn-primary:hover { background: var(--amber-dark); transform: translateY(-1px); }
+        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+        .btn-secondary {
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            color: var(--text);
+            transition: all 0.2s ease;
+        }
+        .btn-secondary:hover { border-color: var(--amber); color: var(--amber); }
+
+        .sun-orb {
+            background: radial-gradient(circle at 35% 30%, var(--sun) 0%, var(--sun-deep) 55%, transparent 75%);
+            filter: blur(0px);
+        }
+
+        .field-input {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+        .field-input:focus {
+            outline: none;
+            border-color: var(--amber);
+            background: rgba(255,255,255,0.06);
+        }
+
+        input[type="range"] {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 3px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 2px;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--sun);
+            cursor: pointer;
+            box-shadow: 0 0 12px rgba(253,186,59,0.5);
+        }
+
+        .reveal {
+            animation: riseIn 0.5s ease forwards;
+        }
+        @keyframes riseIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        :focus-visible { outline: 2px solid var(--amber); outline-offset: 2px; }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-amber-500/30">
+
+    <!-- NAVIGATION -->
+    <nav class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between nav-border sticky top-0 bg-black/80 backdrop-blur z-50">
+        <a href="https://brilliantunicorn.com" class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full sun-orb"></div>
+            <p class="serif text-lg font-semibold text-white leading-tight">
+                Brilliant Unicorn <span class="text-amber-400">Solar</span>
+                <span class="block mono text-[9px] tracking-[0.15em] text-white/35 font-normal">PART OF BRILLIANT UNICORN LTD</span>
+            </p>
+        </a>
+        <div class="hidden md:flex items-center gap-8 text-sm text-white/70">
+            <a href="#how-it-works" class="hover:text-amber-400 transition">How it works</a>
+            <a href="#installers" class="hover:text-amber-400 transition">For installers</a>
+            <a href="#faq" class="hover:text-amber-400 transition">FAQ</a>
+            <a href="https://brilliantunicorn.com" class="hover:text-amber-400 transition">Fintech consulting →</a>
+        </div>
+        <a href="#quote" class="btn-primary px-5 py-2.5 rounded-sm text-sm">Get matched</a>
+    </nav>
+
+    <!-- HERO -->
+    <header class="relative overflow-hidden py-16 md:py-24 border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1.1fr_1fr] gap-14 items-center">
+
+            <div>
+                <p class="text-amber-400 text-sm font-medium mb-5">For Kenyan businesses and homeowners</p>
+                <h1 class="serif text-4xl md:text-5xl font-semibold leading-[1.1] text-white mb-6">
+                    Find out what solar actually costs at your address.
+                </h1>
+                <p class="text-lg text-white/70 leading-relaxed mb-4 max-w-lg">
+                    Tell us your monthly bill, your roof, and your location. We'll size the system, answer your questions, and connect you directly with an installer we've already vetted — not a call center reading a script.
+                </p>
+                <p class="text-white/50 text-sm mb-10">Free for you. We're paid by the installer once a project is confirmed.</p>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#quote" class="btn-primary px-8 py-4 rounded-sm text-center">Get my free estimate</a>
+                    <a href="#how-it-works" class="btn-secondary px-8 py-4 rounded-sm text-center">See how matching works</a>
+                </div>
+
+                <div class="flex gap-10 mt-12 pt-8 border-t border-white/5">
+                    <div>
+                        <p class="serif text-2xl text-white">48hrs</p>
+                        <p class="text-white/45 text-xs mt-1">Typical time to first installer call</p>
+                    </div>
+                    <div>
+                        <p class="serif text-2xl text-white">0</p>
+                        <p class="text-white/45 text-xs mt-1">Cost to you, ever</p>
+                    </div>
+                    <div>
+                        <p class="serif text-2xl text-white">Vetted</p>
+                        <p class="text-white/45 text-xs mt-1">Every installer in our network</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Instant estimate calculator -->
+            <div class="glass-card rounded-sm p-7 md:p-8">
+                <p class="mono text-[10px] tracking-[0.15em] text-amber-400 mb-1">INSTANT ESTIMATE</p>
+                <h2 class="text-white text-lg font-medium mb-6">What could you save?</h2>
+
+                <label class="block text-sm text-white/60 mb-2" for="billRange">Average monthly electricity bill</label>
+                <div class="flex items-baseline gap-2 mb-2">
+                    <span class="text-white/50 mono text-sm">KES</span>
+                    <span id="billValue" class="serif text-3xl text-white">15,000</span>
+                </div>
+                <input id="billRange" type="range" min="3000" max="150000" step="1000" value="15000" class="mb-8" />
+
+                <div id="estimateResult" class="rounded-sm bg-black/40 border border-amber-500/20 p-5 mb-2">
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-white/60 text-sm">Estimated system size</span>
+                        <span id="systemSize" class="mono text-white text-sm">—</span>
+                    </div>
+                    <div class="flex justify-between items-center mb-3">
+                        <span class="text-white/60 text-sm">Estimated monthly savings</span>
+                        <span id="monthlySavings" class="mono text-amber-400 text-sm">—</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-white/60 text-sm">Rough payback period</span>
+                        <span id="paybackPeriod" class="mono text-white text-sm">—</span>
+                    </div>
+                </div>
+                <p class="text-white/35 text-xs mb-6">Ballpark only — your qualified quote will use your real bill, roof, and location.</p>
+
+                <a href="#quote" class="btn-primary block text-center py-3.5 rounded-sm text-sm">Turn this into a real quote</a>
+            </div>
+
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-6">
+
+        <!-- HOW IT WORKS -->
+        <section id="how-it-works" class="py-20 section-border">
+            <div class="max-w-2xl mb-14">
+                <h2 class="serif text-3xl md:text-4xl font-semibold text-white mb-4">How the matching works</h2>
+                <p class="text-white/60 leading-relaxed">Three steps, and only one of them involves talking to a salesperson.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <p class="serif text-4xl text-amber-400/50 mb-4">1</p>
+                    <h3 class="text-white text-lg font-medium mb-3">You tell us about your site</h3>
+                    <p class="text-white/60 text-sm leading-relaxed">Monthly bill, roof size and orientation, location, and what you're trying to solve — lower bills, backup power, or both.</p>
+                </div>
+                <div>
+                    <p class="serif text-4xl text-amber-400/50 mb-4">2</p>
+                    <h3 class="text-white text-lg font-medium mb-3">We qualify it properly</h3>
+                    <p class="text-white/60 text-sm leading-relaxed">We check that the numbers make sense, answer whatever questions you have, and size a system that fits your actual usage — not an inflated one.</p>
+                </div>
+                <div>
+                    <p class="serif text-4xl text-amber-400/50 mb-4">3</p>
+                    <h3 class="text-white text-lg font-medium mb-3">We connect you to an installer</h3>
+                    <p class="text-white/60 text-sm leading-relaxed">A vetted EPC company from our network reaches out directly with a real quote. You decide if you want to move forward — no pressure from us either way.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LEAD CAPTURE FORM -->
+        <section id="quote" class="py-20 section-border">
+            <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-14">
+                <div>
+                    <h2 class="serif text-3xl md:text-4xl font-semibold text-white mb-5">Get your free site assessment</h2>
+                    <p class="text-white/60 leading-relaxed mb-8 max-w-md">Takes about two minutes. We'll review it and be in touch — usually within two business days, sooner if your numbers point to a strong fit.</p>
+
+                    <div class="glass-card rounded-sm p-6">
+                        <p class="text-white/40 text-xs leading-relaxed">
+                            We never sell your contact details to more than one installer at a time, and we never share your information with anyone outside our vetted network.
+                        </p>
+                    </div>
+                </div>
+
+                <form id="leadForm" class="glass-card rounded-sm p-8 space-y-5">
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm text-white/60 mb-2">Full name</label>
+                            <input required type="text" class="field-input w-full rounded-sm px-4 py-3 text-white text-sm" placeholder="Jane Wanjiru" />
+                        </div>
+                        <div>
+                            <label class="block text-sm text-white/60 mb-2">Phone or WhatsApp</label>
+                            <input required type="tel" class="field-input w-full rounded-sm px-4 py-3 text-white text-sm" placeholder="+254 7XX XXX XXX" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm text-white/60 mb-2">Location (town or estate)</label>
+                        <input required type="text" class="field-input w-full rounded-sm px-4 py-3 text-white text-sm" placeholder="Kitengela, Kajiado County" />
+                    </div>
+
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="block text-sm text-white/60 mb-2">Average monthly bill (KES)</label>
+                            <input required type="number" class="field-input w-full rounded-sm px-4 py-3 text-white text-sm" placeholder="15,000" />
+                        </div>
+                        <div>
+                            <label class="block text-sm text-white/60 mb-2">Roof size, if known</label>
+                            <input type="text" class="field-input w-full rounded-sm px-4 py-3 text-white text-sm" placeholder="e.g. 80 sqm, or not sure" />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm text-white/60 mb-2">Property type</label>
+                        <select class="field-input w-full rounded-sm px-4 py-3 text-white text-sm">
+                            <option>Home</option>
+                            <option>Commercial building</option>
+                            <option>Farm or agribusiness</option>
+                            <option>Institution (school, church, clinic)</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm text-white/60 mb-2">Anything else we should know?</label>
+                        <textarea rows="3" class="field-input w-full rounded-sm px-4 py-3 text-white text-sm" placeholder="Backup power needs, timeline, budget range, questions..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary w-full py-4 rounded-sm">Request my free assessment</button>
+                    <p id="formNote" class="text-white/35 text-xs text-center"></p>
+                </form>
+            </div>
+        </section>
+
+        <!-- FOR INSTALLERS -->
+        <section id="installers" class="py-20 section-border">
+            <div class="glass-card rounded-sm p-10 md:p-14 grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <p class="text-amber-400 text-sm font-medium mb-4">For solar EPC companies</p>
+                    <h2 class="serif text-3xl md:text-4xl font-semibold text-white mb-5 leading-tight">
+                        Stop paying for clicks. Pay for qualified leads.
+                    </h2>
+                    <p class="text-white/60 leading-relaxed mb-6 max-w-md">
+                        Every lead we send you has already confirmed their bill, roof, and location, and had their questions answered. You're talking to someone who's ready to get a quote, not someone who filled out a form by accident.
+                    </p>
+                    <ul class="space-y-3 text-sm text-white/70 mb-8">
+                        <li class="flex gap-3"><span class="text-amber-400">—</span> Pay a flat finder's fee per qualified lead, or</li>
+                        <li class="flex gap-3"><span class="text-amber-400">—</span> Pay a 5–10% commission only once a system is installed</li>
+                        <li class="flex gap-3"><span class="text-amber-400">—</span> No subscription, no minimums, no long-term contract</li>
+                    </ul>
+                    <a href="mailto:ceo@brilliantunicorn.com?subject=Installer%20partnership%20inquiry" class="btn-primary inline-block px-8 py-3.5 rounded-sm">Apply to join the network</a>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-black/30 border border-white/10 rounded-sm p-5">
+                        <p class="text-white text-sm font-medium mb-1">Qualification standard</p>
+                        <p class="text-white/50 text-xs leading-relaxed">Every lead includes verified bill amount, rough roof size, exact location, and a note on what they actually want out of the system.</p>
+                    </div>
+                    <div class="bg-black/30 border border-white/10 rounded-sm p-5">
+                        <p class="text-white text-sm font-medium mb-1">Vetting works both ways</p>
+                        <p class="text-white/50 text-xs leading-relaxed">We review installer track record, licensing, and warranty terms before adding anyone to the network — it protects your reputation as much as the client's.</p>
+                    </div>
+                    <div class="bg-black/30 border border-white/10 rounded-sm p-5">
+                        <p class="text-white text-sm font-medium mb-1">You choose your capacity</p>
+                        <p class="text-white/50 text-xs leading-relaxed">Tell us how many leads you can handle per month. We won't flood you past that.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="py-20 section-border">
+            <h2 class="serif text-3xl md:text-4xl font-semibold text-white mb-10">Questions people usually ask</h2>
+            <div class="space-y-0 max-w-3xl">
+                <details class="group border-b border-white/8 py-5">
+                    <summary class="cursor-pointer list-none flex justify-between items-center text-white font-medium">
+                        Does this cost me anything as a homeowner or business?
+                        <span class="text-amber-400 group-open:rotate-45 transition text-xl leading-none">+</span>
+                    </summary>
+                    <p class="text-white/60 text-sm mt-3 leading-relaxed">No. We're paid by the installer, either as a finder's fee or a small commission once your system is installed. Your quote and our advice are free either way.</p>
+                </details>
+                <details class="group border-b border-white/8 py-5">
+                    <summary class="cursor-pointer list-none flex justify-between items-center text-white font-medium">
+                        Will I get calls from multiple installers?
+                        <span class="text-amber-400 group-open:rotate-45 transition text-xl leading-none">+</span>
+                    </summary>
+                    <p class="text-white/60 text-sm mt-3 leading-relaxed">Usually just one — the installer in our network best suited to your location and system size. If you'd like a second opinion, tell us and we'll arrange it.</p>
+                </details>
+                <details class="group border-b border-white/8 py-5">
+                    <summary class="cursor-pointer list-none flex justify-between items-center text-white font-medium">
+                        How do you vet installers?
+                        <span class="text-amber-400 group-open:rotate-45 transition text-xl leading-none">+</span>
+                    </summary>
+                    <p class="text-white/60 text-sm mt-3 leading-relaxed">We check licensing, past installation references, and warranty terms before anyone joins the network, and we track feedback from clients we've referred over time.</p>
+                </details>
+                <details class="group border-b border-white/8 py-5">
+                    <summary class="cursor-pointer list-none flex justify-between items-center text-white font-medium">
+                        I'm not sure solar makes sense for me yet — can I still ask questions?
+                        <span class="text-amber-400 group-open:rotate-45 transition text-xl leading-none">+</span>
+                    </summary>
+                    <p class="text-white/60 text-sm mt-3 leading-relaxed">Yes. A large part of qualifying a lead is answering questions honestly, including telling you if solar isn't a good fit yet. Send us your bill and roof details and we'll give you a straight answer.</p>
+                </details>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="max-w-7xl mx-auto px-6 pt-16 pb-10 border-t border-white/5">
+        <div class="grid md:grid-cols-3 gap-12 mb-14">
+            <div>
+                <p class="serif text-xl font-semibold text-white mb-3">Brilliant Unicorn <span class="text-amber-400">Solar</span></p>
+                <p class="text-white/45 text-sm leading-relaxed max-w-xs">Connecting Kenyan homes and businesses with vetted solar installers. Part of Brilliant Unicorn Ltd.</p>
+            </div>
+            <div class="text-sm space-y-3 text-white/60">
+                <p><a href="#how-it-works" class="hover:text-amber-400 transition">How it works</a></p>
+                <p><a href="#installers" class="hover:text-amber-400 transition">For installers</a></p>
+                <p><a href="#faq" class="hover:text-amber-400 transition">FAQ</a></p>
+                <p><a href="https://brilliantunicorn.com" class="hover:text-amber-400 transition">Fintech consulting</a></p>
+                <p><a href="https://brilliantunicorn.com" class="hover:text-amber-400 transition">Brilliant Unicorn Ltd</a></p>
+            </div>
+            <div class="text-sm">
+                <a href="mailto:ceo@brilliantunicorn.com" class="block text-white/70 hover:text-amber-400 mb-2">ceo@brilliantunicorn.com</a>
+                <p class="text-white/40">Nairobi, Kenya · Kenya-wide installer network</p>
+            </div>
+        </div>
+        <div class="flex flex-col md:flex-row justify-between items-center border-t border-white/5 pt-6 gap-4">
+            <p class="mono text-[10px] tracking-widest text-white/25">© 2026 BRILLIANT UNICORN LTD</p>
+            <p class="mono text-[10px] tracking-widest text-white/25">SOLAR.BRILLIANTUNICORN.COM</p>
+        </div>
+    </footer>
+
+    <script>
+        const billRange = document.getElementById('billRange');
+        const billValue = document.getElementById('billValue');
+        const systemSize = document.getElementById('systemSize');
+        const monthlySavings = document.getElementById('monthlySavings');
+        const paybackPeriod = document.getElementById('paybackPeriod');
+        const estimateResult = document.getElementById('estimateResult');
+
+        function fmt(n) {
+            return Math.round(n).toLocaleString('en-KE');
+        }
+
+        function updateEstimate() {
+            const bill = parseInt(billRange.value, 10);
+            billValue.textContent = fmt(bill);
+
+            // Rough illustrative assumptions, not an engineering quote:
+            // ~KES 30/kWh effective tariff, ~4.2 sun-hours/day average in Kenya,
+            // solar system assumed to offset ~75% of consumption.
+            const tariff = 30;
+            const sunHours = 4.2;
+            const monthlyKwh = bill / tariff;
+            const offsetKwh = monthlyKwh * 0.75;
+            const systemKw = offsetKwh / (sunHours * 30);
+            const savings = offsetKwh * tariff;
+            const estCost = systemKw * 130000; // rough installed cost per kW, KES
+            const paybackYears = estCost / (savings * 12);
+
+            systemSize.textContent = `~${systemKw.toFixed(1)} kW`;
+            monthlySavings.textContent = `KES ${fmt(savings)}`;
+            paybackPeriod.textContent = `~${paybackYears.toFixed(1)} yrs`;
+
+            estimateResult.classList.remove('reveal');
+            void estimateResult.offsetWidth;
+            estimateResult.classList.add('reveal');
+        }
+
+        billRange.addEventListener('input', updateEstimate);
+        updateEstimate();
+
+        const leadForm = document.getElementById('leadForm');
+        const formNote = document.getElementById('formNote');
+        leadForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const btn = leadForm.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+            setTimeout(() => {
+                btn.textContent = 'Request my free assessment';
+                btn.disabled = false;
+                formNote.textContent = "Thanks — we'll review your details and be in touch within two business days.";
+            }, 700);
+        });
+    </script>
+
+</body>
+</html>
